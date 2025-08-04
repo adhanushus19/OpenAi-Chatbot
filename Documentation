@@ -1,0 +1,125 @@
+📡 OpenAI Web-Search Chatbot using Qwen3-4B
+This project is a Google Colab-based chatbot that combines a Hugging Face LLM (Qwen3-4B) with live web search capabilities. It is designed to generate real-time, citation-backed answers using Google search and NLP tools, and is wrapped in a clean Gradio UI for easy interaction.
+
+🔍 Project Overview
+Purpose:
+Build a lightweight yet powerful chatbot that doesn’t just guess — it reads from the web. This chatbot:
+
+Takes a user’s question
+
+Searches the internet for answers
+
+Extracts article content
+
+Builds a prompt using the most relevant info
+
+Uses the Qwen3-4B model to generate a citation-rich response
+
+Displays it in a styled chat interface
+
+🛠️ Components & Tools Used
+Hugging Face Transformers (Qwen/Qwen3-4B)
+
+The language model that interprets user queries and writes intelligent responses.
+
+Googlesearch-python & newspaper3k
+
+Searches the web and extracts readable content from article links.
+
+Gradio
+
+Provides an interactive chatbot UI that runs in the browser.
+
+PyTorch
+
+Backend framework for model execution.
+
+Custom Prompt Engineering
+
+Dynamically builds a citation-rich prompt that the LLM can understand.
+
+🧠 How It Works
+User inputs a question
+E.g., “What are the effects of climate change on agriculture?”
+
+Web search and parsing
+The web_search() function:
+
+Finds top 10 results on Google
+
+Downloads and cleans article text
+
+Extracts summaries and URLs
+
+Prompt construction
+The answer_with_citations() function:
+
+Formats all snippets with numbered tags and links
+
+Creates a full prompt ending with Answer: for the model
+
+Model generation
+The Qwen3-4B model:
+
+Reads the prompt
+
+Generates a contextual, cited answer
+
+Chatbot UI
+
+The chat_fn() function handles interaction
+
+Gradio displays the chat history with bubble styling
+
+🚀 How to Run
+In Google Colab:
+Open the notebook (OpenAi-ChatBot.ipynb)
+
+Run each cell in order:
+
+Install dependencies
+
+Load the model and tokenizer
+
+Define the web search and answer functions
+
+Launch Gradio UI
+
+Make sure to add your Hugging Face token when prompted.
+
+Locally:
+Download the notebook and run it in Jupyter Lab or Google Colab with GPU support.
+
+Install all required packages using pip.
+
+💡 Example Prompts to Try
+"What are the benefits of a Mediterranean diet?"
+
+"Latest updates on SpaceX Mars mission?"
+
+"Explain how quantum computing works with real-world examples."
+
+"Top investment trends in AI as of 2025?"
+
+📁 File Structure
+css
+Copy
+Edit
+OpenAi-ChatBot.ipynb     → Complete chatbot code with all logic and UI
+README.md or DOCUMENTATION.txt → Project summary and setup steps
+✅ Use Cases
+Real-time Q&A bots
+
+Research summarizers
+
+Educational tools
+
+Assistants for news and current affairs
+
+📌 Notes
+Avoid sharing personal Hugging Face tokens publicly.
+
+Web scraping might not always retrieve clean content (fallbacks are handled).
+
+Add rate limiting if deploying at scale to avoid search bans.
+
